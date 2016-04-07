@@ -2,9 +2,7 @@ FROM debian:8.0
 MAINTAINER admin <evgeniy@kolesnyk.ru>
 RUN export DEBIAN_FRONTEND=noninteractive
 
-RUN locale-gen en_US.utf8
-RUN update-locale LANG=en_US.utf8 LC_CTYPE=en_US.utf8 LC_ALL=en_US.utf8
-RUN apt-key update && apt-get update && apt-get -y upgrade
+RUN apt-get -y update && apt-get -y upgrade
 RUN apt-get -y autoremove apache2
 RUN apt-get -y install curl
 RUN cd /root && curl -O http://vestacp.com/pub/vst-install.sh
