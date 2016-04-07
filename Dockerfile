@@ -1,4 +1,4 @@
-FROM debian:8.3
+FROM debian:8.0
 MAINTAINER admin <evgeniy@kolesnyk.ru>
 RUN export DEBIAN_FRONTEND=noninteractive
 
