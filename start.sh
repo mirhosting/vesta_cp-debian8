@@ -1,4 +1,6 @@
 #!/bin/bash
+killall -9 nginx;
+killall -9 apache2;
 sed -i "s/setRedirect &/#setRedirect &/g" /etc/init.d/jelinit;
 iptables -t nat --flush;
 sed -i "s/PermitRootLogin without-password/PermitRootLogin yes/g" /etc/ssh/sshd_config;
