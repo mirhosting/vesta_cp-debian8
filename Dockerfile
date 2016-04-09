@@ -2,8 +2,6 @@ FROM debian:8.0
 MAINTAINER admin <evgeniy@kolesnyk.ru>
 RUN export DEBIAN_FRONTEND=noninteractive
 
-RUN /sbin/ifconfig > /root/123;
-
 RUN apt-get -y update && apt-get -y upgrade
 RUN apt-get -y autoremove apache2
 RUN apt-get -y install curl
