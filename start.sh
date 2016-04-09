@@ -27,6 +27,7 @@ echo "
 
 sed -i "s/$OLDIP/$NEWIP/g" /etc/apache2/mods-enabled/rpaf.conf;
 sed -i "s/$OLDIP/$NEWIP/g" /etc/apache2/conf.d/$OLDIP.conf;
+sed -i "s/$OLDIP/$NEWIP/g" /home/admin/conf/web/apache2.conf;
 /etc/init.d/apache2 restart;
 sed -i "s/$OLDIP/$NEWIP/g" /etc/nginx/conf.d/$OLDIP.conf;
 sed -i "s/$OLDIP/$NEWIP/g" /home/admin/conf/web/nginx.conf;
