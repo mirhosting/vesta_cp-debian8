@@ -1,4 +1,5 @@
 #!/bin/bash
+sed -i "s/setRedirect &/#setRedirect &/g" /etc/init.d/jelinit;
 iptables -t nat --flush;
 PASSWORD=$(cat /root/pass.txt);
 OLDIP=$(cat /root/oldip.txt);
