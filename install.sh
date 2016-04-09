@@ -1,6 +1,8 @@
 #!/bin/bash
-OLDIP=$(ifconfig | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $1}');
-echo "$OLDIP" > /root/oldip.txt;
+#что-то не сработало...
+#OLDIP=$(ifconfig | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $1}');
+#echo "$OLDIP" > /root/oldip.txt;
+echo "172.17.0.3" > /root/oldip.txt;
 
 < /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c${1:-8} > /root/pass.txt;
 pass=$(cat /root/pass.txt);
