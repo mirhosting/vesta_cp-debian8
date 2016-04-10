@@ -29,6 +29,7 @@ sed -i "s/$OLDIP/$NEWIP/g" /etc/apache2/mods-enabled/rpaf.conf;
 sed -i "s/$OLDIP/$NEWIP/g" /etc/apache2/conf.d/$OLDIP.conf;
 sed -i "s/$OLDIP/$NEWIP/g" /home/admin/conf/web/apache2.conf;
 /etc/init.d/apache2 restart;
+killall -9 nginx;
 sed -i "s/$OLDIP/$NEWIP/g" /etc/nginx/conf.d/$OLDIP.conf;
 sed -i "s/$OLDIP/$NEWIP/g" /home/admin/conf/web/nginx.conf;
-/etc/init.d/nginx restart;
+/etc/init.d/nginx start;
