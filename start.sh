@@ -23,7 +23,7 @@ echo "
   <p>Mask: 255.255.255.255</p>
 </body>
 </html>
-" > /var/www/html/index.html;
+" > /home/admin/web/vesta.host/public_html/index.html;
 
 sed -i "s/$OLDIP/$NEWIP/g" /etc/apache2/mods-enabled/rpaf.conf;
 sed -i "s/$OLDIP/$NEWIP/g" /etc/apache2/conf.d/$OLDIP.conf;
