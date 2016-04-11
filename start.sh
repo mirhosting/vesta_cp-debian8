@@ -8,10 +8,11 @@ PASSWORD=$(cat /root/pass.txt);
 OLDIP=$(cat /root/oldip.txt);
 NEWIP=$(ifconfig | grep 'inet addr:'| grep -v '127.0.0.1' | grep -v 'P-t-P:10.' | cut -d: -f2 | awk '{ print $1}');
 
+killall -9 apache2;
 sed -i "s/$OLDIP/$NEWIP/g" /etc/apache2/mods-enabled/rpaf.conf;
 sed -i "s/$OLDIP/$NEWIP/g" /etc/apache2/conf.d/$OLDIP.conf;
 sed -i "s/$OLDIP/$NEWIP/g" /home/admin/conf/web/apache2.conf;
-/etc/init.d/apache2 restart;
+/etc/init.d/apache2 start;
 killall -9 nginx;
 sed -i "s/$OLDIP/$NEWIP/g" /etc/nginx/conf.d/$OLDIP.conf;
 sed -i "s/$OLDIP/$NEWIP/g" /home/admin/conf/web/nginx.conf;
