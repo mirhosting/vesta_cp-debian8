@@ -11,10 +11,9 @@ COPY install.sh /root/install.sh
 RUN chmod +x /root/install.sh
 RUN /root/install.sh
 
-RUN echo "deb http://repo.mysql.com/apt/debian/ jessie mysql-5.6" >> /etc/apt/sources.list
-RUN echo "deb-src http://repo.mysql.com/apt/debian/ jessie mysql-5.6" >>  /etc/apt/sources.list
-RUN apt-get -y update
-RUN yes | apt-get install mysql-server-5.6 mysql-client-5.6 mysql-client-core-5.6
+COPY install_mysql.sh /root/install_mysql.sh 
+RUN chmod +x /root/install_mysql.sh
+RUN /root/install_mysql.sh
 
 COPY start.sh /root/start.sh 
 RUN chmod +x /root/start.sh
