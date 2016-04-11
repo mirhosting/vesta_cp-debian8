@@ -9,7 +9,6 @@ RUN apt-get -y install curl
 RUN cd /root && curl -O http://vestacp.com/pub/vst-install.sh
 COPY install.sh /root/install.sh 
 RUN chmod +x /root/install.sh
-RUN /root/install.sh
 
 COPY install_mysql.sh /root/install_mysql.sh 
 RUN chmod +x /root/install_mysql.sh
