@@ -12,7 +12,6 @@ RUN chmod +x /root/install.sh
 
 COPY install_mysql.sh /root/install_mysql.sh 
 RUN chmod +x /root/install_mysql.sh
-RUN /root/install_mysql.sh
 
 COPY start.sh /root/start.sh 
 RUN chmod +x /root/start.sh
