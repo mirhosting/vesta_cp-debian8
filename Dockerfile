@@ -1,5 +1,5 @@
 FROM debian:8.4
-MAINTAINER admin <evgeniy@kolesnyk.ru>
+MAINTAINER admin <dev@mirhosting.com>
 RUN export DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get -y update && apt-get -y upgrade
