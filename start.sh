@@ -9,11 +9,14 @@ OLDIP=$(cat /root/oldip.txt);
 NEWIP=$(ifconfig | grep 'inet addr:'| grep -v '127.0.0.1' | grep -v 'P-t-P:10.' | cut -d: -f2 | awk '{ print $1}');
 
 killall -9 apache2;
-sed -i "s/$OLDIP/$NEWIP/g" /etc/apache2/mods-enabled/rpaf.conf;
-sed -i "s/$OLDIP/$NEWIP/g" /etc/apache2/conf.d/$OLDIP.conf;
-sed -i "s/$OLDIP/$NEWIP/g" /home/admin/conf/web/apache2.conf;
-/etc/init.d/apache2 start;
 killall -9 nginx;
-sed -i "s/$OLDIP/$NEWIP/g" /etc/nginx/conf.d/$OLDIP.conf;
-sed -i "s/$OLDIP/$NEWIP/g" /home/admin/conf/web/nginx.conf;
+cd /usr/local/vesta/data/ips && mv * $NEWIP;
+cd /etc/apache2/conf.d && sed -i -- 's/172.*.*.*:80/$NEWIP:80/g' * && sed -i -- 's/172.*.*.*:8443/$NEWIP:8443/g' *;
+cd /etc/nginx/conf.d && sed -i -- 's/172.*.*.*:80;/80;/g' * && sed -i -- 's/172.*.*.*:8080/$NEWIP:8080/g' *;
+cd /home/admin/conf/web && sed -i -- 's/172.*.*.*:80;/80;/g' * && sed -i -- 's/172.*.*.*:8080/$NEWIP:8080/g' *;
+
+mv /etc/apache2/conf.d/$OLDIP.conf /etc/apache2/conf.d/$NEWIP.conf
+mv /etc/nginx/conf.d/$OLDIP.conf /etc/nginx/conf.d/$NEWIP.conf
+
+/etc/init.d/apache2 start;
 /etc/init.d/nginx start;
