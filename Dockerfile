@@ -1,4 +1,4 @@
-FROM debian:8.4
+FROM debian:8
 MAINTAINER admin <dev@mirhosting.com>
 RUN export DEBIAN_FRONTEND=noninteractive
 
